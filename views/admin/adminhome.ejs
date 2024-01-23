@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logged In Page</title>
+    <link rel="stylesheet" href="/adminhome.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+</head>
+<body style="background-color: rgb(174, 203, 187);">
+    <div class="container text-center mt-5">
+      <div class="d-flex justify-content-between bg-dark text-light ">
+          <div>
+              <h3 class="ms-5 mt-3">ADMIN PANEL</h3>
+          </div>
+          <div>
+            <form action="/adminhome" method="get">
+              <div class="input-group m-3">
+                <input type="text" name="UserName" class="form-control" placeholder="Search user">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+              </div>
+            </form>
+          </div> 
+              <a href="/admin/createuser" class="btn btn-primary m-3">Add new user</a>
+              <button id="sign-out-btn" class="btn btn-danger m-3">Sign Out</button>
+              <!-- <a href="/admin/signout" class="btn btn-danger m-3">Logout</a> -->
+      </div>
+  </div>
+    <div class="container mt-5">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% users.forEach(user => { %>
+            <tr>
+              <td><%= user.UserName %></td>
+              <td><%= user.Email %></td>
+              <td>
+                <a href="/admin/edituser/<%= user._id %>" class="btn btn-success btn-sm">Edit</a>
+                <!-- <a href="/admin/removeuser/<%= user._id %>" class="btn btn-danger btn-sm">Remove</a> -->
+                <button onclick="confirmUserRemoval('<%= user._id %>')" class="btn btn-danger btn-sm">Remove</button>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+      <!-- <div class="container text-center mt-2">
+
+          <button id="update-btn" class="btn btn-warning  "><a class="text-white" href="/admin/createuser">Create New User</a></button>
+
+      </div> -->
+
+      
+    
+      
+
+    <script>
+        document.getElementById("sign-out-btn").addEventListener("click", function() {
+            alert("You have been signed out.");
+            window.location.href = "/logout";
+        });
+    </script>
+    <script>
+      function confirmUserRemoval(userId) {
+          if (confirm("Are you sure you want to remove this user?")) {
+              window.location.href = "/admin/removeuser/" + userId;
+          }
+      }
+  </script>
+</body>
+</html>

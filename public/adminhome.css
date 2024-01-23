@@ -1,0 +1,41 @@
+body {
+    background-color: #bad9f9;
+    font-family: Arial, sans-serif;
+}
+
+.container{
+    margin-top: 150px;
+
+}
+#login-form {
+    background-image: url("https://images.unsplash.com/photo-1553095066-5014bc7b7f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D&w=1000&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #7e7e7e;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(23, 23, 23, 0.2);
+}
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.form-group label {
+    font-weight: bold;
+}
+.form-control {
+    border-radius: 5px;
+}
+.btn-primary {
+    background-color: #14283e;
+    border: none;
+    transition: background-color 0.3s;
+}
+.btn-primary:hover {
+    background-color: #d6e6ef;
+}
